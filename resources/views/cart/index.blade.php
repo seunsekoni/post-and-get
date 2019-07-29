@@ -75,13 +75,13 @@
                                         <td></td>
                                         @if($TotalReq == null)
                                             <td></td>
+                                            <td></td>
                                         @else
                                         <td><b> 
                                                 
                                                 ₦ {{ $TotalReq->formatValue($TotalReq->sum('amount')) }}
                                         
                                         </b></td>
-                                        @endif
                                         <td>
                                             <div class="btn-group-justified text-center" role="group">
                                                 <div class="btn-group" role="group">
@@ -89,6 +89,7 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        @endif
                                     </tr>
 
                             </tbody>
