@@ -52,7 +52,7 @@
                                         <td>
                                             <div class="btn-group-justified text-center" role="group">
                                                 <div class="btn-group" role="group">
-                                                    <a href="{{ route('rentProperty.show', [auth()->user()->id, $requestLine->id]) }}" style="margin-right: 10px;" class="btn btn-sm btn-success">{{ __('View') }}</a>
+                                                    <a href="{{ route('cart.show', [auth()->user()->id, $requestLine->id]) }}" style="margin-right: 10px;" class="btn btn-sm btn-success">{{ __('View') }}</a>
                                                 </div>
 
                                                 <!-- <div class="btn-group" role="group">
@@ -73,7 +73,11 @@
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td><b> ₦ {{ $requestLine->formatValue($requestLine->sum('amount')) }}</b></td>
+                                        <td><b> 
+                                            
+                                                ₦ {{ $TotalReq->formatValue($TotalReq->sum('amount')) }}
+                                        
+                                        </b></td>
                                         <td>
                                             <div class="btn-group-justified text-center" role="group">
                                                 <div class="btn-group" role="group">

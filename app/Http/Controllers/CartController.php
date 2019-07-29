@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use App\RequestLine;
 use App\RentProperty;
+use App\State;
+use Carbon\Carbon;
 use Session;
 
 class CartController extends Controller
@@ -20,8 +22,9 @@ class CartController extends Controller
     {
         $userId = auth()->user()->id;
         $requestLines = RequestLine::where('user_id', $userId)->get();
+        $TotalReq =  RequestLine::where('user_id', $userId)->first();
 
-        return view('cart.index', [$userId], compact('requestLines'));
+        return view('cart.index', [$userId], compact('requestLines', 'TotalReq'));
     }
 
     /**
@@ -42,6 +45,7 @@ class CartController extends Controller
      */
     public function store($id)
     {
+        // dd($id);
         $rent = RentProperty::where('id', $id)->first();
         $requestLine = new RequestLine;
 
@@ -62,15 +66,14 @@ class CartController extends Controller
         // // dd($rent);
         // $rent->save();
 
-
         $requestLine->request_type = "Get Request";
         $requestLine->amount= $rent->budget;
         // dd($requestLine);
-        $requestLine->request_line_id = null;
+        $requestLine->request_line_id = 1;
         $requestLine->request_line = "Rent a Property";
         $requestLine->request_id = $rent->id;
-        $requestLine->line_category = null;
-        $requestLine->provider_category = null;
+        $requestLine->line_category = 1;
+        $requestLine->provider_category = 1;
         $requestLine->user_id = $userId;
         // dd($requestLine);
 

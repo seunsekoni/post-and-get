@@ -9,6 +9,7 @@
             $('#form1 input').prop("disabled", true);
             $('#form1 select').prop("disabled", true);
             $('#form1 button').hide();
+            $('#addToCart').show();
             
         });
 	</script> 
@@ -28,7 +29,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                    <form method="post" id="form1" action="" autocomplete="off">
+                    <form method="post" id="form1" action="{{ route('cart.store', $rentProperty->id) }}" autocomplete="off" >
                             @csrf      
 							<input type="hidden" name="request_type" value="Post Request">
 							<input type="hidden" name="request_line_id" value="1">
@@ -257,7 +258,7 @@
                             
                         </form>
                                 <div class="col-12 text-right">
-                                    <a href="{{ route('cart.store', $rentProperty->id) }}" class="btn btn-bg btn-primary">{{ __('Add to Cart') }}</a>
+                                    <a href=" {{ route('cart.store', $rentProperty->id) }}" class="btn btn-bg btn-primary" id="addToCart">{{ __('Add to Cart') }}</a>
                                 </div>
 
                 

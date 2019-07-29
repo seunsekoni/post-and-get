@@ -40,7 +40,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 	// Cart
 	Route::get('cart', ['as' => 'cart.index', 'uses' => 'CartController@index']);
-	Route::post('cart/{id}', ['as' => 'cart.store', 'uses' => 'CartController@store']);
+	Route::get('cart/{id}', ['as' => 'cart.store', 'uses' => 'CartController@store']);
+	Route::get('cart/{id}/{request_id}', ['as' => 'cart.show', 'uses' => 'CartController@show']);
 	Route::get('cart/validate/{id}', ['as' => 'cart.validate', 'uses' => 'CartController@getValidateContact']);
     Route::post('cart/validate/{id}', ['as' => 'cart.validate.post', 'uses' => 'CartController@postValidateContact']);
 
