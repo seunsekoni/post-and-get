@@ -74,7 +74,7 @@
                                         <td></td>
                                         <td></td>
                                         <td><b> 
-                                            
+                                                
                                                 ₦ {{ $TotalReq->formatValue($TotalReq->sum('amount')) }}
                                         
                                         </b></td>

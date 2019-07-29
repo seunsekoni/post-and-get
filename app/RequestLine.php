@@ -12,9 +12,9 @@ class RequestLine extends Model
     }
 
     // Show price of product in a specific way
-    public function formatValue($value)
+    public function formatValue($value = null)
     {
-        if($value == null) {
+        if($value === null) {
             return null;
         }else {
 
