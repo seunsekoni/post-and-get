@@ -24,6 +24,7 @@ class CreateRequestLinesTable extends Migration
             $table->integer('amount')->nullable();
             $table->integer('line_category')->nullable();
             $table->integer('provider_category')->nullable();
+            $table->string('paid')->nullable();
             $table->timestamps();
         });
     }

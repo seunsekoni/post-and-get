@@ -14,6 +14,11 @@ class RequestLine extends Model
     // Show price of product in a specific way
     public function formatValue($value)
     {
-        return number_format($value);
+        if($value == null) {
+            return null;
+        }else {
+
+            return number_format($value);
+        }
     }
 }
